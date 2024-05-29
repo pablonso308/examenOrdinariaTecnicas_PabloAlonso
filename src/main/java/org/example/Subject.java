@@ -1,13 +1,29 @@
 package org.example;
 
 public class Subject {
-    private String subjectName;
+    private String subjectId;
+    private String name;
+    private int credits;
 
-    public Subject(String subjectName) {
-        this.subjectName = subjectName;
+    // Constructor
+    public Subject(String subjectId, String name, int credits) {
+        this.subjectId = subjectId;
+        this.name = name;
+        this.credits = credits;
     }
 
-    public String getSubjectName() {
-        return subjectName;
+
+    // Getters
+    public String getSubjectId() {
+        return subjectId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getCredits() {
+        return credits;
     }
 }
+

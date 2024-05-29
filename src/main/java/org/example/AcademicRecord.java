@@ -1,35 +1,34 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AcademicRecord {
-
-    public List<SubjectRecord> subjectRecords;
-    private List<String> certificates;
+    private Map<Subject, Double> grades;
+    private Map<Subject, Boolean> certificates;
 
     public AcademicRecord() {
-        this.subjectRecords = new ArrayList<>();
-        this.certificates = new ArrayList<>();
+        this.grades = new HashMap<>();
+        this.certificates = new HashMap<>();
     }
 
-    public void addSubjectRecord(Subject subject, double grade) {
-        subjectRecords.add(new SubjectRecord(subject, grade));
+    public void addGrade(Subject subject, double grade) {
+        grades.put(subject, grade);
     }
 
-    public void addCertificate(String certificate) {
-        certificates.add(certificate);
+    public void addCertificate(Subject subject) {
+        certificates.put(subject, true);
     }
 
-    public double calculateGPA() {
-        double totalGrades = 0.0;
-        for (SubjectRecord record : subjectRecords) {
-            totalGrades += record.getGrade();
-        }
-        return subjectRecords.size() > 0 ? totalGrades / subjectRecords.size() : 0.0;
+    public double getGrade(Subject subject) {
+        return grades.getOrDefault(subject, 0.0);
     }
 
-    public List<String> getCertificates() {
-        return certificates;
+    public boolean hasCertificate(Subject subject) {
+        return certificates.getOrDefault(subject, false);
+    }
+
+    public double calculateAverageGrade() {
+        return grades.values().stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
     }
 }

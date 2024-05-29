@@ -1,26 +1,25 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Course {
-    private String courseName;
-    private List<Subject> subjects;
+    private String title;
+    private Subject subject;
+    private String instructor;
 
-    public Course(String courseName) {
-        this.courseName = courseName;
-        this.subjects = new ArrayList<>();
+    public Course(String title, Subject subject, String instructor) {
+        this.title = title;
+        this.subject = subject;
+        this.instructor = instructor;
     }
 
-    public void addSubject(Subject subject) {
-        subjects.add(subject);
+    public String getTitle() {
+        return title;
     }
 
-    public String getCourseName() {
-        return courseName;
+    public Subject getSubject() {
+        return subject;
     }
 
-    public List<Subject> getSubjects() {
-        return subjects;
+    public String getInstructor() {
+        return instructor;
     }
 }

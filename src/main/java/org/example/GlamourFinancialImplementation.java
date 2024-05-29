@@ -11,7 +11,7 @@ public class GlamourFinancialImplementation implements GlamourFinancial {
     private double bookValue; // Valor en libros de la empresa
 
     // Constructor
-    public GlamourFinancialImplementation(double initialBookValue) {
+    public GlamourFinancialImplementation(double initialBookValue, double totalShares) {
         this.stockPrices = new HashMap<>();
         this.bookValue = initialBookValue;
     }
